@@ -15,6 +15,8 @@ export class RoomsComponent implements OnInit {
 
   selectedRoom!:RoomList;
 
+  title='Room List'
+
   rooms: Room = {
     totalRooms: 20,
     availableRooms: 10,
@@ -61,9 +63,29 @@ export class RoomsComponent implements OnInit {
 
   toggle() {
     this.hideRooms = !this.hideRooms;
+    this.title='Rooms List';
+    
   }
 
   selectRoom(room:RoomList){
     this.selectedRoom=room;
   }
+
+  addRoom(){
+    const room: RoomList={
+      roomNumber:4,
+      roomType:'Deluce Type',
+      amenities:'Ac, WIFI',
+      price:500,
+      photos:'nahh',
+      checkinTime:new Date('11-Nov-2021'),
+      checkoutTime:new Date('12-Nov-2021'),
+      rating:4.7
+    }
+
+    // this.roomList.push(room);
+    this.roomList= [...this.roomList,room]; 
+  }
 }
+
+
